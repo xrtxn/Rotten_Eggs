@@ -1,1 +1,1 @@
-# Tarsasjatek_ertekelo
+# Project for my university
