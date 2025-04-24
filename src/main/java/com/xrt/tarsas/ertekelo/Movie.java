@@ -23,6 +23,15 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
+    private String director;
+
+    @Column(nullable = false)
+    private String releaseYear;
+
+    @Column
+    private String description;
 }

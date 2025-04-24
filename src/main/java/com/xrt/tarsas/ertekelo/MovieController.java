@@ -34,7 +34,7 @@ public class MovieController {
         Optional<Movie> movie = repository.findById(id);
         if (movie.isPresent()) {
             model.addAttribute("movie", movie.get());
-            return "view";
+            return "details";
         } else {
             return "redirect:/movies";
         }
