@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    lang="hu"
+>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Rohadt tomátó</title>
+        <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon" /> -->
+        <link rel="stylesheet" href="/bootstrap.min.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h1>Movie Collection</h1>
+
+            <div class="my-3">
+                <a th:href="@{/movies/new}" class="btn btn-primary"
+                    >Add New Movie</a
+                >
+            </div>
+
+            <div th:if="${movies.empty}" class="alert alert-info">
+                No movies found in the collection.
+            </div>
+
+            <div th:if="${!movies.empty}" class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Year</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="movie : ${movies}">
+                            <td th:text="${movie.id}"></td>
+                            <td th:text="${movie.title}"></td>
+                            <td>
+                                <a
+                                    th:href="@{/movies/{id}(id=${movie.id})}"
+                                    class="btn btn-sm btn-info"
+                                    >View</a
+                                >
+                                <a
+                                    th:href="@{/movies/edit/{id}(id=${movie.id})}"
+                                    class="btn btn-sm btn-warning"
+                                    >Edit</a
+                                >
+                                <a
+                                    th:href="@{/movies/delete/{id}(id=${movie.id})}"
+                                    class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete this movie?')"
+                                    >Delete</a
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
