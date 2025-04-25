@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/movies")
-public class MovieController {
+public final class MovieController {
 
     @Autowired
     private MovieRepository repository;

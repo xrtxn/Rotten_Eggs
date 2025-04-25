@@ -50,7 +50,7 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testViewMovie_Found() throws Exception {
+    public void testViewMovieFound() throws Exception {
         Movie movie = new Movie();
         movie.setId(1L);
         movie.setTitle(MOVIE_1_NAME);
@@ -66,7 +66,7 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testViewMovie_NotFound() throws Exception {
+    public void testViewMovieNotFound() throws Exception {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
 
         mockMvc
@@ -100,7 +100,7 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testEditMovieForm_Found() throws Exception {
+    public void testEditMovieFormFound() throws Exception {
         Movie movie = new Movie();
         movie.setId(1L);
         movie.setTitle(MOVIE_1_NAME);
@@ -116,7 +116,7 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testEditMovieForm_NotFound() throws Exception {
+    public void testEditMovieFormNotFound() throws Exception {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
 
         mockMvc
@@ -139,7 +139,7 @@ public class MovieControllerTest {
     }
 
     @Test
-    public void testDeleteMovie_NotFound() throws Exception {
+    public void testDeleteMovieNotFound() throws Exception {
         mockMvc
             .perform(get("/movies/delete/999"))
             .andExpect(flash().attributeExists("errorMessage"))
