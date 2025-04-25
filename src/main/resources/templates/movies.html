@@ -8,14 +8,41 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Rotten popcorn</title>
+        <title>Rotten eggs</title>
         <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon" /> -->
         <link rel="stylesheet" href="/bootstrap.min.css" />
-        <script src="script.js"></script>
     </head>
     <body>
         <div class="container mt-4">
-            <h1>Movie Collection</h1>
+            <h1>Rotten eggs website</h1>
+
+            <div
+                th:if="${successMessage}"
+                class="alert alert-success alert-dismissible fade show"
+                role="alert"
+            >
+                <span th:text="${successMessage}"></span>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                ></button>
+            </div>
+
+            <div
+                th:if="${errorMessage}"
+                class="alert alert-danger alert-dismissible fade show"
+                role="alert"
+            >
+                <span th:text="${errorMessage}"></span>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                ></button>
+            </div>
 
             <div class="my-3">
                 <a th:href="@{/movies/new}" class="btn btn-primary"
