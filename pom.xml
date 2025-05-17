@@ -154,12 +154,14 @@
 						</configuration>
 					</execution>
 				</executions>
+            <configuration>
 				<excludes>
                     <exclude>**/exception/**</exclude>
                     <exclude>**/ErtekeloApplication.java</exclude>
                     <exclude>**Repository**</exclude>
                     <exclude>**/domain/**</exclude>
                 </excludes>
+            </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
