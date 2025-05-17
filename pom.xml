@@ -16,6 +16,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ertekelo</name>
 	<description>Demo project for Spring Boot</description>
+	<distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub xrtxn Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/xrtxn/Rotten_Eggs/</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 	<url />
 	<licenses>
 		<license />
