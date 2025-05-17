@@ -146,6 +146,12 @@
 						</configuration>
 					</execution>
 				</executions>
+				<excludes>
+                    <exclude>**/exception/**</exclude>
+                    <exclude>**/ErtekeloApplication.java</exclude>
+                    <exclude>**Repository**</exclude>
+                    <exclude>**/domain/**</exclude>
+                </excludes>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
