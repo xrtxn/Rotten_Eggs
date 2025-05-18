@@ -29,14 +29,21 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="director" class="form-label">Director</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="director"
-                        th:field="*{director}"
+                    <label for="directorId" class="form-label">Director</label>
+                    <select
+                        class="form-select"
+                        id="directorId"
+                        name="directorId"
                         required
-                    />
+                    >
+                        <option value="">-- Please select a director --</option>
+                        <option
+                            th:each="dir : ${directors}"
+                            th:value="${dir.id}"
+                            th:text="${dir.firstName + ' ' + dir.lastName + ' (' + dir.birthYear + ')'}"
+                            th:selected="${movie.director != null && movie.director.id == dir.id}"
+                        ></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">

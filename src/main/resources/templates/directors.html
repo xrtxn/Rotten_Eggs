@@ -1,20 +1,13 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    lang="hu"
->
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Rotten eggs</title>
-        <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon" /> -->
+        <title>Directors</title>
         <link rel="stylesheet" href="/bootstrap.min.css" />
     </head>
     <body>
         <div class="container mt-4">
-            <h1>Rotten eggs website</h1>
+            <h1>Directors</h1>
 
             <div
                 th:if="${successMessage}"
@@ -45,52 +38,50 @@
             </div>
 
             <div class="my-3">
-                <a th:href="@{/movies/new}" class="btn btn-primary"
-                    >Add New Movie</a
+                <a th:href="@{/directors/new}" class="btn btn-primary"
+                    >Add New Director</a
                 >
-                <a th:href="@{/directors}" class="btn btn-secondary"
-                    >Manage Directors</a
+                <a th:href="@{/movies}" class="btn btn-secondary"
+                    >Back to Movies</a
                 >
             </div>
 
-            <div th:if="${movies.empty}" class="alert alert-info">
-                No movies found in the collection.
+            <div th:if="${directors.empty}" class="alert alert-info">
+                No directors found.
             </div>
 
-            <div th:if="${!movies.empty}" class="table-responsive">
+            <div th:if="${!directors.empty}" class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>Director</th>
-                            <th>Year</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Birth Year</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="movie : ${movies}">
-                            <td th:text="${movie.id}"></td>
-                            <td th:text="${movie.title}"></td>
-                            <td
-                                th:text="${movie.director.firstName + ' ' + movie.director.lastName}"
-                            ></td>
-                            <td th:text="${movie.releaseYear}"></td>
+                        <tr th:each="director : ${directors}">
+                            <td th:text="${director.id}"></td>
+                            <td th:text="${director.firstName}"></td>
+                            <td th:text="${director.lastName}"></td>
+                            <td th:text="${director.birthYear}"></td>
                             <td>
                                 <a
-                                    th:href="@{/movies/{id}(id=${movie.id})}"
+                                    th:href="@{/directors/{id}(id=${director.id})}"
                                     class="btn btn-sm btn-info"
                                     >View</a
                                 >
                                 <a
-                                    th:href="@{/movies/edit/{id}(id=${movie.id})}"
+                                    th:href="@{/directors/edit/{id}(id=${director.id})}"
                                     class="btn btn-sm btn-warning"
                                     >Edit</a
                                 >
                                 <a
-                                    th:href="@{/movies/delete/{id}(id=${movie.id})}"
+                                    th:href="@{/directors/delete/{id}(id=${director.id})}"
                                     class="btn btn-sm btn-danger"
-                                    onclick="return confirm('Are you sure you want to delete this movie?')"
+                                    onclick="return confirm('Are you sure you want to delete this director?')"
                                     >Delete</a
                                 >
                             </td>

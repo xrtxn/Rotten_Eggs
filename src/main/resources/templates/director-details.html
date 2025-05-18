@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Director Details</title>
+        <link rel="stylesheet" href="/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h1>Director Details</h1>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <span
+                        th:text="${director.firstName + ' ' + director.lastName}"
+                    ></span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Birth Year:
+                        <span th:text="${director.birthYear}"></span>
+                    </h5>
+
+                    <div class="mt-4">
+                        <a
+                            th:href="@{/directors/edit/{id}(id=${director.id})}"
+                            class="btn btn-warning"
+                            >Edit</a
+                        >
+                        <a
+                            th:href="@{/directors/delete/{id}(id=${director.id})}"
+                            class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this director?')"
+                            >Delete</a
+                        >
+                        <a th:href="@{/directors}" class="btn btn-secondary"
+                            >Back to List</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

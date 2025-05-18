@@ -18,15 +18,17 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        Directed by <span th:text="${movie.director}"></span>
+                        Directed by
+                        <span
+                            th:text="${movie.director.firstName + ' ' + movie.director.lastName}"
+                        ></span>
+                        (<span th:text="${movie.director.birthYear}"></span>)
                     </h5>
 
                     <div class="mt-3" th:if="${movie.description}">
                         <h6>Description:</h6>
                         <p th:text="${movie.description}"></p>
                     </div>
-
-                    <!-- Add any other movie properties you want to display -->
 
                     <div class="mt-4">
                         <a
